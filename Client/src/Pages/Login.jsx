@@ -11,7 +11,7 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      const res = await API.post("/auth/v1/login", {
+      const res = await API.post("v1/auth/login", {
         email,
         password,
       });
@@ -51,10 +51,6 @@ const Login = () => {
 
         <button type="submit">Login</button>
       </form>
-
-      <div className="small-text">
-        New user? <span onClick={() => navigate("/register")}>Register</span>
-      </div>
     </div>
   );
 };

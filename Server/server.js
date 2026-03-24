@@ -3,26 +3,20 @@ require("dotenv").config();
 const mongoose = require("mongoose")
 const dbconfig = require("./config/db.js");
 const cors = require("cors");
-const AuthRoutes = require("./routes/AuthRoutes.js")
-const CustomerRoutes = require("./routes/CustomerRoutes.js")
-const {AuthMiddleware} = require("./middleware/authMiddleware.js");
-const BillingRoutes = require("./routes/BillingRoutes.js")
-const deliveryRoutes = require("./routes/DeliveryRoutes.js")
 
 const app = express();
 app.use(express.json());
-app.use(cors({
-  origin: "https://deliverysaas-frontend.onrender.com/", 
-  credentials: true
-}));
+app.use(cors());
 mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log("MongoDB connected"))
 .catch(err => console.log(err));
 
-app.use("/auth/v1", AuthRoutes);
-app.use("/v1/customer", AuthMiddleware, CustomerRoutes);
-app.use("/v1", AuthMiddleware, deliveryRoutes)
-app.use("/v1/billing", AuthMiddleware, BillingRoutes)
+app.use("/v1/auth", require("./routes/authRoutes.js"));
+app.use("/v1/farmer", require("./routes/farmerRoutes"));
+app.use("/v1/buyer", require("./routes/buyerRoutes"));
+app.use("/v1/purchase", require("./routes/purchaseRoutes"));
+app.use("/v1/sale", require("./routes/saleRoutes"));
+app.use("/v1/profit", require("./routes/profitRoutes"));
 
 
 

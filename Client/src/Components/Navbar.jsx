@@ -13,9 +13,9 @@ const Navbar = () => {
       <h3 onClick={() => navigate("/dashboard")}>🥛 Delivery</h3>
 
       <div className="nav-links">
-        <span onClick={() => navigate("/customers")}>Customers</span>
-        <span onClick={() => navigate("/mark-delivery")}>Delivery</span>
-        <span onClick={() => navigate("/billing")}>Billing</span>
+       <span onClick={() => navigate("/purchase")}>Purchase</span>
+        <span onClick={() => navigate("/sale")}>Sales</span>
+        <span onClick={() => navigate("/profit")}>Profit</span>
         <span onClick={handleLogout}>Logout</span>
       </div>
     </div>

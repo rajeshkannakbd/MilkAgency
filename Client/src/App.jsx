@@ -1,21 +1,50 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./Pages/Login";
-import Register from "./Pages/Register";
-import Dashboard from "./Pages/Dashboard";
-import AddCustomer from "./Pages/AddCustomer";
-import CustomerList from "./Pages/CustomerList";
 import ProtectedRoute from "./routes/ProtectedRoute";
-import MarkDelivery from "./Pages/MarkDelivery";
-import Billing from "./Pages/Billing";
 import Layout from "./Components/Layout";
+import Purchase from "./Pages/Purchase";
+import Sale from "./Pages/Sale";
+import Profit from "./Pages/Profit";
+import Dashboard from "./Pages/Dashboard"
+import ChartPage from "./Pages/Charts";
 
 function App() {
   return (
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route
+<Route
+  path="/purchase"
+  element={
+      <Layout>
+        <Purchase />
+      </Layout>
+    
+  }
+/>
+
+<Route
+  path="/sale"
+  element={
+    <ProtectedRoute>
+      <Layout>
+        <Sale />
+      </Layout>
+    </ProtectedRoute>
+  }
+/>
+
+<Route
+  path="/profit"
+  element={
+    <ProtectedRoute>
+      <Layout>
+        <Profit />
+      </Layout>
+    </ProtectedRoute>
+  }
+/>
+<Route
   path="/dashboard"
   element={
     <ProtectedRoute>
@@ -25,50 +54,18 @@ function App() {
     </ProtectedRoute>
   }
 />
-
 <Route
-  path="/customers"
+  path="/charts"
   element={
     <ProtectedRoute>
       <Layout>
-        <CustomerList />
+        <ChartPage />
       </Layout>
     </ProtectedRoute>
   }
 />
 
-<Route
-  path="/add-customer"
-  element={
-    <ProtectedRoute>
-      <Layout>
-        <AddCustomer />
-      </Layout>
-    </ProtectedRoute>
-  }
-/>
 
-<Route
-  path="/mark-delivery"
-  element={
-    <ProtectedRoute>
-      <Layout>
-        <MarkDelivery />
-      </Layout>
-    </ProtectedRoute>
-  }
-/>
-
-<Route
-  path="/billing"
-  element={
-    <ProtectedRoute>
-      <Layout>
-        <Billing />
-      </Layout>
-    </ProtectedRoute>
-  }
-/>
       </Routes>
     </BrowserRouter>
   );
