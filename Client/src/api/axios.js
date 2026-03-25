@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "https://milkagencysandyserver.onrender.com",
+  baseURL: "http://localhost:5000",
 });
 
 // 🔥 Attach token automatically
