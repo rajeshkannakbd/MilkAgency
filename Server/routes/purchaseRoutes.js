@@ -1,3 +1,13 @@
+const express = require("express");
+const router = express.Router();
+const Purchase = require("../models/Purchase");
+const auth = require("../middleware/auth.js")
+
+router.post("/", auth, async (req, res) => {
+  const purchase = await Purchase.create(req.body);
+  res.json(purchase);
+});
+
 router.get("/", auth, async (req, res) => {
   const { date } = req.query;
 
@@ -23,3 +33,5 @@ router.get("/", auth, async (req, res) => {
 
   res.json(purchases);
 });
+
+module.exports = router;
