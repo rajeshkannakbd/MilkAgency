@@ -11,7 +11,7 @@ mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log("MongoDB connected"))
 .catch(err => console.log(err));
 
-app.use("/v1/auth", require("./routes/authRoutes"));
+app.use("/v1/auth", require("./routes/authRoute.js"));
 app.use("/v1/farmer", require("./routes/farmerRoutes"));
 app.use("/v1/buyer", require("./routes/buyerRoutes"));
 app.use("/v1/purchase", require("./routes/purchaseRoutes"));
