@@ -228,3 +228,39 @@ button[type="submit"] {
   color: white;
   font-weight: bold;
 }
+.toggle {
+  display: flex;
+  gap: 10px;
+  margin: 10px 0;
+}
+
+.toggle button {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: #e0f7fa;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.toggle button.active {
+  background: #0077b6;
+  color: white;
+}
+
+.card input {
+  width: 100%;
+  margin: 8px 0;
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.card button {
+  width: 100%;
+  padding: 12px;
+  background: #0077b6;
+  color: white;
+  border: none;
+  border-radius: 10px;
+}

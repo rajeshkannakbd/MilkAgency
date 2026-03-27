@@ -1,5 +1,13 @@
 {
   "appId": "com.milkagency.app",
   "appName": "Milk Agency",
-  "webDir": "dist"
+  "webDir": "dist",
+  "bundledWebRuntime": false,
+  "server": {
+    "url": "https://milkagencysandyfrontend.onrender.com/",
+    "cleartext": false,
+    "allowNavigation": [
+      "https://milkagencysandyserver.onrender.com"
+    ]
+  }
 }

@@ -7,6 +7,7 @@ import Sale from "./Pages/Sale";
 import Profit from "./Pages/Profit";
 import Dashboard from "./Pages/Dashboard"
 import ChartPage from "./Pages/Charts";
+import People from "./Pages/People"
 
 function App() {
   return (
@@ -64,6 +65,13 @@ function App() {
     </ProtectedRoute>
   }
 />
+<Route path="/people" element={
+    <ProtectedRoute>
+      <Layout>
+        <People /> 
+      </Layout>
+    </ProtectedRoute>
+  }/>
 
 
       </Routes>
